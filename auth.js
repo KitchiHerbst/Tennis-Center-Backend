@@ -13,9 +13,18 @@ passport.use(
       passReqToCallback: true,
     },
     function (request, accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        return done(err, user);
-      });
+        //implement this later TODO
+    //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    // });
+        return done(err, profile);
     }
   )
 );
+
+passport.serializeUser((user, done) => {
+    done(null, user)
+})
+
+passport.serializeUser((user, done) => {
+    done(null, user)
+})
