@@ -9,6 +9,10 @@ const passport = require("passport");
 // local imports
 require("./auth");
 
+function isLoggedIn(req, res, next) {
+  req.user ? next() : res.status(401);
+}
+
 // starting up our app
 const app = express();
 
@@ -31,7 +35,7 @@ app.get(
   (req, res) => {}
 );
 
-app.get("/protected", (req, res) => {
+app.get("/protected", isLoggedIn, (req, res) => {
   res.send("Hello!");
 });
 
