@@ -41,7 +41,7 @@ app.get(
 );
 
 app.get("/protected", isLoggedIn, (req, res) => {
-  res.send("Hello!");
+  res.send(`Hello ${req.user.displayName}`);
 });
 
 app.get("/auth/failure", (req, res) => {
@@ -50,6 +50,7 @@ app.get("/auth/failure", (req, res) => {
 
 app.get("/logout", (req, res) => {
   req.logOut();
+  req.session.destroy();
   res.send("GOodbye");
 });
 
