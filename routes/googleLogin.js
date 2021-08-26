@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const isLoggedIn = require("../index");
 
 router.get(
   "/auth",
@@ -10,7 +11,7 @@ router.get(
 router.get(
   "/callback",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "/google/protected",
     failureRedirect: "/google/failure",
   }),
   (req, res) => {}
