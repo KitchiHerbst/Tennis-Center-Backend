@@ -13,18 +13,18 @@ passport.use(
       passReqToCallback: true,
     },
     function (request, accessToken, refreshToken, profile, done) {
-        //implement this later TODO
-    //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
-    // });
-        return done(err, profile);
+      //implement this later TODO
+      //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      // });
+      return done(null, profile);
     }
   )
 );
 
 passport.serializeUser((user, done) => {
-    done(null, user)
-})
+  done(null, user);
+});
 
-passport.serializeUser((user, done) => {
-    done(null, user)
-})
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
