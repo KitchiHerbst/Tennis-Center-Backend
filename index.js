@@ -2,6 +2,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
+
 //imports
 const express = require("express");
 
@@ -10,6 +11,7 @@ require("./auth");
 
 // starting up our app
 const app = express();
+
 
 // startup
 require("./startup/routes")(app);

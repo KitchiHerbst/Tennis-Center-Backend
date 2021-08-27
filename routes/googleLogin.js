@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedInMember = require("../middleware/isLoggedInMember");
 const passport = require("passport");
 
 router.get(
@@ -18,7 +18,8 @@ router.get(
   (req, res) => {}
 );
 
-router.get("/protected", isLoggedIn, (req, res) => {
+router.get("/protected", isLoggedInMember, (req, res) => {
+  console.log(req.cookies['connect.sid']);
   res.send(`Hello ${req.user.displayName}`);
 });
 

@@ -34,7 +34,7 @@ const employeeSchema = new mongoose.Schema({
   //   },
 });
 
-const Employee = new mongoose.Model("Employee", employeeSchema);
+const Employee = new mongoose.model("Employee", employeeSchema);
 
 const validate = ({ firstName, lastName, email }) => {
   const schema = Joi.object({
