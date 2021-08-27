@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
+const employeeSchema = new mongoose.Schema({
   firstName: {
     type: String,
     require: true,
@@ -24,4 +24,16 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255,
   },
+  //incase i want to have a manual signup and login instead of using Oauth for employees
+  //   password: {
+  //     type: String,
+  //     required: true,
+  //     minlength: 3,
+  //     maxlength: 1024,
+  //   },
 });
+
+const Employee = new mongoose.Model("Employee", employeeSchema);
+
+exports.employeeSchema = employeeSchema;
+exports.Employee = Employee;
