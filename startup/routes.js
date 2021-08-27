@@ -4,7 +4,7 @@ const passport = require("passport");
 
 // local imports
 const googleLogin = require("../routes/googleLogin");
-const users = require("../routes/users");
+const logout = require("../routes/logout");
 const home = require("../routes/home");
 
 //environment variables
@@ -18,5 +18,5 @@ module.exports = (app) => {
   app.use(express.urlencoded({ extended: true }));
   app.use("/", home);
   app.use("/google", googleLogin);
-  app.use("/users", users);
+  app.use("/logout", logout);
 };

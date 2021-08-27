@@ -35,5 +35,7 @@ const employeeSchema = new mongoose.Schema({
 
 const Employee = new mongoose.Model("Employee", employeeSchema);
 
+
+
 exports.employeeSchema = employeeSchema;
 exports.Employee = Employee;
