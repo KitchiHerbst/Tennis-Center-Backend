@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const isLoggedIn = require("../index");
+const isLoggedIn = require("../middleware/isLoggedIn");
+const passport = require("passport");
 
 router.get(
   "/auth",
