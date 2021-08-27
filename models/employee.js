@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Joi = require("joi");
 
 const employeeSchema = new mongoose.Schema({
   firstName: {
@@ -35,7 +36,16 @@ const employeeSchema = new mongoose.Schema({
 
 const Employee = new mongoose.Model("Employee", employeeSchema);
 
+const validate = ({ firstName, lastName, email }) => {
+  const schema = Joi.object({
+    firstName: Joi.string().required().min(1).max(50),
+    lastName: Joi.string().required().min(1).max(50),
+    email: Joi.string().required().min(1).max(50).email(),
+  });
 
+  schema.validate({ firstName, lastName, email });
+};
 
 exports.employeeSchema = employeeSchema;
 exports.Employee = Employee;
+exports.validate = validate;
